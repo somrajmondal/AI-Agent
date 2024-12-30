@@ -8,11 +8,9 @@ from phi.tools.dalle import Dalle
 import openai
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
 
-# Define individual agents with specialized roles
 # Web Searching Agent
 web_search_agent = Agent(
     name="Web Searching Agent",
@@ -83,7 +81,7 @@ agent_team = Agent(
 # Utility function to generate and get image URLs
 def generate_and_get_image_urls(agent, prompt):
   
-    response = agent.print_response(prompt)  # Trigger image generation
+    response = agent.print_response(prompt) 
     images_res = agent.get_images()  # Fetch generated images
 
     image_urls = []
@@ -94,7 +92,6 @@ def generate_and_get_image_urls(agent, prompt):
                 image_urls.append(img_url)
     return image_urls
 
-# Unified function to call any agent
 def call_agent(agent_name, prompt):
 
     if agent_name == "web_search":
@@ -108,9 +105,7 @@ def call_agent(agent_name, prompt):
     else:
         raise ValueError("Invalid agent name. Please choose from: web_search, finance, image, youtube.")
 
-# Main execution block
 if __name__ == "__main__":
-    # Example calls to different agents
 
     # Web Search Agent
     # print("Web Search Response:")
